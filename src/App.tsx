@@ -684,7 +684,7 @@ function App() {
                 <span className="font-display font-bold text-xl text-[#F4F7FB]">MD: The Return</span>
               </div>
               <p className="text-[#A9B3C2] text-sm leading-relaxed mb-4 max-w-md">
-                A compassionate companion for anyone seeking to reclaim their presence from maladaptive daydreaming. Built with care by someone who understands.
+                A compassionate companion for anyone seeking to reclaim their presence from maladaptive daydreaming. Built with care by someone who understands (v2.0).
               </p>
               <div className="p-4 rounded-xl bg-[#2DD4BF]/5 border border-[#2DD4BF]/10">
                 <div className="flex items-center gap-2 mb-2">
