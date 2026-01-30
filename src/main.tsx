@@ -4,7 +4,7 @@ import './index.css'
 import App from './App.tsx'
 
 // Error Trap
-window.onerror = function (message, source, lineno, colno, error) {
+window.onerror = function (message, source, lineno, _colno, error) {
   document.body.innerHTML = `<div style="color:red; padding:20px; background:black;">
     <h1>Error Detected</h1>
     <p>${message}</p>
