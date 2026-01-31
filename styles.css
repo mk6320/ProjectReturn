@@ -83,16 +83,33 @@ body {
 
 h1,
 h2,
-h3 {
+h3,
+h4 {
     font-family: 'Sora', sans-serif;
     letter-spacing: -0.02em;
+    color: #ffffff;
+    /* Pure white for headers */
+}
+
+p {
+    color: #cbd5e1;
+    /* Lighter gray (slate-300) for standard paragraphs */
+    font-weight: 500;
+    /* Slightly heavier weight for clarity */
+}
+
+.text-gray-400 {
+    color: #e2e8f0 !important;
+    /* Forces a much lighter, high-contrast gray (slate-200) */
 }
 
 .glass-panel {
-    background: var(--card);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border: 1px solid var(--border);
+    background: rgba(17, 24, 39, 0.85);
+    /* More opaque for better text contrast */
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    /* Brighter border */
     border-radius: 1.25rem;
     transition: all 0.3s ease;
 }
@@ -121,8 +138,186 @@ h3 {
     -webkit-text-fill-color: transparent;
 }
 
+/* -- Cycle Diagram (Pure CSS) -- */
+.cycle-container {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    margin: 0 auto;
+}
+
+.cycle-ring {
+    position: absolute;
+    inset: 0;
+    border: 2px dashed rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    animation: spin 20s linear infinite;
+}
+
+.cycle-node {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    background: var(--background);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    transition: all 0.3s ease;
+}
+
+.cycle-node:hover {
+    border-color: var(--primary);
+    box-shadow: 0 0 30px rgba(20, 241, 149, 0.2);
+    transform: scale(1.1);
+}
+
+.node-1 {
+    top: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Top */
+.node-2 {
+    bottom: 20px;
+    right: -20px;
+}
+
+/* Bottom Right */
+.node-3 {
+    bottom: 20px;
+    left: -20px;
+}
+
+/* Bottom Left */
+
+.cycle-label {
+    position: absolute;
+    width: 200px;
+    text-align: center;
+    pointer-events: none;
+}
+
+.label-1 {
+    top: -80px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.label-2 {
+    top: 50%;
+    right: -160px;
+    transform: translateY(-50%);
+    text-align: left;
+}
+
+.label-3 {
+    top: 50%;
+    left: -160px;
+    transform: translateY(-50%);
+    text-align: right;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* -- Roadmap Styles -- */
+.roadmap-step {
+    position: relative;
+    padding-left: 3rem;
+    border-left: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.roadmap-step:last-child {
+    border-left: 2px solid transparent;
+}
+
+.step-marker {
+    position: absolute;
+    left: -17px;
+    /* Center circle on 2px border */
+    top: 0;
+    width: 32px;
+    height: 32px;
+    background: var(--background);
+    border: 2px solid var(--primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary);
+    font-weight: bold;
+    z-index: 5;
+}
+
+@media (max-width: 768px) {
+    .cycle-container {
+        transform: scale(0.7);
+        margin: 60px auto;
+    }
+
+    .label-2 {
+        right: -100px;
+    }
+
+    .label-3 {
+        left: -100px;
+    }
+}
+
 @media (max-width: 768px) {
     h1 {
         font-size: 2.5rem !important;
+    }
+}
+
+/* -- Premium Mockup Styles -- */
+.mockup-container {
+    position: relative;
+    border-radius: 2rem;
+    padding: 8px;
+    /* Frame thickness */
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.02));
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+    /* Deep shadow */
+}
+
+.mockup-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    height: 80%;
+    background: radial-gradient(circle, var(--primary) 0%, transparent 70%);
+    opacity: 0.2;
+    filter: blur(40px);
+    z-index: -1;
+    animation: pulse-glow 4s ease-in-out infinite;
+}
+
+@keyframes pulse-glow {
+
+    0%,
+    100% {
+        opacity: 0.15;
+        transform: translate(-50%, -50%) scale(0.95);
+    }
+
+    50% {
+        opacity: 0.25;
+        transform: translate(-50%, -50%) scale(1.05);
     }
 }
